@@ -1,9 +1,7 @@
-using System.ComponentModel;
 using UnityEditor;
 using UnityEngine;
 
-
-namespace UIToolkitConvenience
+namespace Editor
 {
     public class ReadOnlyAttribute : PropertyAttribute
     {

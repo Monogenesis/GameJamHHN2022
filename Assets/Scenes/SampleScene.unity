@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 700968582}
   - component: {fileID: 700968581}
   - component: {fileID: 700968583}
+  - component: {fileID: 700968586}
   - component: {fileID: 700968584}
   - component: {fileID: 700968585}
   m_Layer: 0
@@ -503,6 +504,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &700968586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700968580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd2b47ff4e38c9409366f41cc22a208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthComponent:
+    health: 100
+    maxHealth: 100
+    isDead: 0
 --- !u!1 &895970784
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,8 +666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417ac4e468734fe4a420cac80cbb8624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitMoveBehaviour: {fileID: 0}
-  _unitAttackBehaviour: {fileID: 0}
+  _unitMoveBehaviour: {fileID: 11400000, guid: bfa06ea2405e289459fd5698a91f8263, type: 2}
+  _unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
   _healthComponent:
     health: 100
     maxHealth: 100

@@ -1,9 +1,9 @@
 ﻿using DefaultNamespace;
 using UnityEngine;
 
-namespace UIToolkitConvenience
+namespace UnitBehaviours
 {
-    [CreateAssetMenu(fileName = "UnitAttackBehaviour", menuName = "ScriptableObjects/Behaviour/UnitAttackBehaviour", order = 2)]
+    [CreateAssetMenu(fileName = "AttackBehaviour", menuName = "ScriptableObjects/Behaviour/UnitAttackBehaviour", order = 2)]
     public class UnitAttackBehaviour : UnitBehaviour
     {
         

@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
+using UIToolkitConvenience;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UIElements;
-using static UIToolkitConvenience.SimpleUIInteractionMediator;
 
-namespace UIToolkitConvenience
+namespace UI
 {
     [CustomEditor(typeof(SimpleUIInteractionMediator))]
-    public class SimpleUIInteractionMediatorInspector : Editor
+    public class SimpleUIInteractionMediatorInspector : UnityEditor.Editor
     {
         private readonly HashSet<string> _missingEventReferenceTypeNames = new();
 
@@ -47,33 +44,33 @@ namespace UIToolkitConvenience
                 Debug.Log("Finished Parsing The UIDocument!");
             }
 
-            CheckForMissingReference<UIEventHandle<object>, object>(myScript.ButtonInteractions, ListNames[0]);
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<object>, object>(myScript.ButtonInteractions, ListNames[0]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<string>>, ChangeEvent<string>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<string>>, ChangeEvent<string>>(
                 myScript.DropdownInteractions, ListNames[1]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<string>>, ChangeEvent<string>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<string>>, ChangeEvent<string>>(
                 myScript.TextFieldInteractions, ListNames[2]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<float>>, ChangeEvent<float>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<float>>, ChangeEvent<float>>(
                 myScript.FloatSliderInteractions, ListNames[3]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<int>>, ChangeEvent<int>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<int>>, ChangeEvent<int>>(
                 myScript.INTSliderInteractions, ListNames[4]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<Vector2>>, ChangeEvent<Vector2>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<Vector2>>, ChangeEvent<Vector2>>(
                 myScript.MinMaxSliderInteractions, ListNames[5]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<bool>>, ChangeEvent<bool>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<bool>>, ChangeEvent<bool>>(
                 myScript.RadioButtonInteractions, ListNames[6]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<int>>, ChangeEvent<int>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<int>>, ChangeEvent<int>>(
                 myScript.RadioButtonGroupInteractions, ListNames[7]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<bool>>, ChangeEvent<bool>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<bool>>, ChangeEvent<bool>>(
                 myScript.ToggleInteractions, ListNames[8]);
 
-            CheckForMissingReference<UIEventHandle<ChangeEvent<bool>>, ChangeEvent<bool>>(
+            CheckForMissingReference<SimpleUIInteractionMediator.UIEventHandle<ChangeEvent<bool>>, ChangeEvent<bool>>(
                 myScript.FoldoutInteractions, ListNames[9]);
 
 
@@ -109,13 +106,13 @@ namespace UIToolkitConvenience
         }
 
         private void ForListDo<TListType, TDataType>(List<TListType> interactionList, string typeName, Action action)
-            where TListType : UIEventHandle<TDataType>
+            where TListType : SimpleUIInteractionMediator.UIEventHandle<TDataType>
         {
             action.Invoke();
         }
 
         private void CheckForMissingReference<TListType, TDataType>(List<TListType> interactionList, string typeName)
-            where TListType : UIEventHandle<TDataType>
+            where TListType : SimpleUIInteractionMediator.UIEventHandle<TDataType>
         {
             bool missingRefFound = false;
             for (int i = 0; i < interactionList.Count; i++)

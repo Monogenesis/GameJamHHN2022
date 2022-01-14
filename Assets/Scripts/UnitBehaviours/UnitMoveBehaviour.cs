@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace;
+using UnityEngine;
 
-namespace DefaultNamespace
+namespace UnitBehaviours
 {
-    [CreateAssetMenu(fileName = "UnitMoveBehaviour", menuName = "ScriptableObjects/Behaviour/UnitMoveBehaviour", order = 1)]
+    [CreateAssetMenu(fileName = "MoveBehaviour", menuName = "ScriptableObjects/Behaviour/UnitMoveBehaviour", order = 1)]
     public class UnitMoveBehaviour : UnitBehaviour
     {
         

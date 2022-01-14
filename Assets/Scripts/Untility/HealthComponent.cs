@@ -1,73 +1,77 @@
 ﻿using System;
+using Editor;
 using UnityEngine;
 
-[System.Serializable]
-public class HealthComponent
+namespace Untility
 {
-    [SerializeField] private float health = 0.0f;
-    [SerializeField] private float maxHealth = 0.0f;
-    [SerializeField] private bool isDead = false;
-
-    public event Action OnPlayerDroppedBelowZeroHP;
-
-    public HealthComponent()
+    [System.Serializable]
+    public class HealthComponent
     {
-        maxHealth = health = 100.0f;
-    }
+        [SerializeField] private float health = 0.0f;
+        [SerializeField] private float maxHealth = 0.0f;
+        [SerializeField, ReadOnly] private bool isDead = false;
 
+        public event Action OnPlayerDroppedBelowZeroHP;
 
-    public HealthComponent(float maxHealth)
-    {
-        this.maxHealth = this.health = maxHealth;
-    }
-
-
-    public void UpdateMaxHealth(int value)
-    {
-        maxHealth += value;
-        if (maxHealth < health)
+        public HealthComponent()
         {
-            health = maxHealth;
+            maxHealth = health = 100.0f;
         }
-    }
 
 
-    public void UpdateHealth(float value)
-    {
-        if (!isDead)
+        public HealthComponent(float maxHealth)
         {
-            health += value;
-            if (health <= 0.0f)
-            {
-                isDead = true;
-                health = 0.0f;
-                OnPlayerDroppedBelowZeroHP?.Invoke();
-            }
-            else if (health > maxHealth)
+            this.maxHealth = this.health = maxHealth;
+        }
+
+
+        public void UpdateMaxHealth(int value)
+        {
+            maxHealth += value;
+            if (maxHealth < health)
             {
                 health = maxHealth;
             }
         }
-    }
 
 
-    public float Health
-    {
-        get => health;
-        set => health = value;
-    }
+        public void UpdateHealth(float value)
+        {
+            if (!isDead)
+            {
+                health += value;
+                if (health <= 0.0f)
+                {
+                    isDead = true;
+                    health = 0.0f;
+                    OnPlayerDroppedBelowZeroHP?.Invoke();
+                }
+                else if (health > maxHealth)
+                {
+                    health = maxHealth;
+                }
+            }
+        }
 
 
-    public float MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
-    }
+        public float Health
+        {
+            get => health;
+            set => health = value;
+        }
 
 
-    public bool IsDead
-    {
-        get => isDead;
-        set => isDead = value;
+        public float MaxHealth
+        {
+            get => maxHealth;
+            set => maxHealth = value;
+        }
+
+
+        public bool IsDead
+        {
+            get => isDead;
+            set => isDead = value;
+        }
     }
 }
