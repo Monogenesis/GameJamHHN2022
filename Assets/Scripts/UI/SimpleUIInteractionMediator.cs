@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Editor;
+#if UNITY_EDITOR
+using EditorScripts;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-namespace UIToolkitConvenience
+namespace UI
 {
     public class SimpleUIInteractionMediator : MonoBehaviour
     {
@@ -183,8 +185,17 @@ namespace UIToolkitConvenience
         [Serializable]
         public class UIEventHandle<T>
         {
-            [SerializeField, ReadOnly] private string name;
-            [SerializeField, ReadOnly] private string eventParameterType;
+            [SerializeField]
+#if UNITY_EDITOR
+            [ReadOnly]
+#endif
+            private string name;
+
+            [SerializeField]
+#if UNITY_EDITOR
+            [ReadOnly]
+#endif
+            private string eventParameterType;
             [SerializeField] private UnityEvent<T> interactionEvent;
 
             public string Name

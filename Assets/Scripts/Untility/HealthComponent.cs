@@ -1,5 +1,4 @@
 ﻿using System;
-using Editor;
 using UnityEngine;
 
 namespace Untility
@@ -9,9 +8,9 @@ namespace Untility
     {
         [SerializeField] private float health = 0.0f;
         [SerializeField] private float maxHealth = 0.0f;
-        [SerializeField, ReadOnly] private bool isDead = false;
+        [SerializeField] private bool isDead = false;
 
-        public event Action OnPlayerDroppedBelowZeroHP;
+        public event Action OnPlayerDroppedBelowZeroHp;
 
         public HealthComponent()
         {
@@ -44,7 +43,7 @@ namespace Untility
                 {
                     isDead = true;
                     health = 0.0f;
-                    OnPlayerDroppedBelowZeroHP?.Invoke();
+                    OnPlayerDroppedBelowZeroHp?.Invoke();
                 }
                 else if (health > maxHealth)
                 {

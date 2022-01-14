@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using UIToolkitConvenience;
+using System.Collections.Generic; 
+#if UNITY_EDITOR
 using UnityEditor;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
 namespace UI
 {
+    
     [CustomEditor(typeof(SimpleUIInteractionMediator))]
     public class SimpleUIInteractionMediatorInspector : UnityEditor.Editor
     {
@@ -151,3 +154,5 @@ namespace UI
         }
     }
 }
+
+#endif

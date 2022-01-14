@@ -1,8 +1,9 @@
 using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace EditorScripts
 {
     [InitializeOnLoad]
     public class CustomHierarchy : MonoBehaviour
@@ -72,3 +73,5 @@ namespace Editor
         }
     }
 }
+
+#endif
