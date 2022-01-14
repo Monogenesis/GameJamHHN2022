@@ -1,14 +1,31 @@
-﻿using UnitBehaviours;
+﻿using System;
+using UnitBehaviours.Attack;
+using UnitBehaviours.Move;
 using UnityEngine;
 using Untility;
 
-namespace DefaultNamespace
+namespace Units
 {
     public abstract class Unit : MonoBehaviour
     {
-        [SerializeField] private UnitMoveBehaviour _unitMoveBehaviour;
-        [SerializeField] private UnitAttackBehaviour _unitAttackBehaviour;
-        [SerializeField] private HealthComponent _healthComponent;
+        [SerializeField] private UnitMovement unitMovement;
+        [SerializeField] private UnitMoveBehaviour unitMoveBehaviour;
+        [SerializeField] private UnitAttackBehaviour unitAttackBehaviour;
+        [SerializeField] private HealthComponent healthComponent;
 
+        public UnitMovement UnitMovement => unitMovement;
+
+
+        private void Awake()
+        {
+            unitMoveBehaviour.Initialize();
+            unitAttackBehaviour.Initialize();
+        }
+
+        private void Update()
+        {
+            unitMoveBehaviour.Act(this);
+            unitAttackBehaviour.Act(this);
+        }
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adff8f29f517478585b0734ee725bcc9, type: 3}
+  m_Name: PlayerMovement
+  m_EditorClassIdentifier: 
+  playerMovementAction: {fileID: -4982957079474527957, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
+  speedBonusAction: {fileID: 7492160101244640684, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
+  speed: 10
+  speedFactor: 1.5

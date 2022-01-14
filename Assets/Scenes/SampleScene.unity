@@ -361,7 +361,8 @@ GameObject:
   m_Component:
   - component: {fileID: 700968582}
   - component: {fileID: 700968581}
-  - component: {fileID: 700968583}
+  - component: {fileID: 700968588}
+  - component: {fileID: 700968587}
   - component: {fileID: 700968586}
   - component: {fileID: 700968584}
   - component: {fileID: 700968585}
@@ -440,23 +441,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &700968583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700968580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b4d106443193b14788b1a40c21d9c44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovementAction: {fileID: -4982957079474527957, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
-  speedBonusAction: {fileID: 7492160101244640684, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
-  characterController: {fileID: 700968584}
-  speed: 10
-  speedFactor: 1.5
 --- !u!50 &700968584
 Rigidbody2D:
   serializedVersion: 4
@@ -520,6 +504,39 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     isDead: 0
+--- !u!114 &700968587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700968580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dce8957b5d9fa429a9186ddbbe43db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 700968584}
+  speed: 1
+--- !u!114 &700968588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700968580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4d82ff7c9e4ef46baeb8cad2a50c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMovement: {fileID: 700968587}
+  unitMoveBehaviour: {fileID: 11400000, guid: 4eadcd9ef6609884b950b6007587cd0e, type: 2}
+  unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
+  healthComponent:
+    health: 100
+    maxHealth: 100
+    isDead: 0
 --- !u!1 &895970784
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +549,6 @@ GameObject:
   - component: {fileID: 895970787}
   - component: {fileID: 895970786}
   - component: {fileID: 895970785}
-  - component: {fileID: 895970789}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -654,24 +670,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &895970789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895970784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417ac4e468734fe4a420cac80cbb8624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unitMoveBehaviour: {fileID: 11400000, guid: bfa06ea2405e289459fd5698a91f8263, type: 2}
-  _unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
-  _healthComponent:
-    health: 100
-    maxHealth: 100
-    isDead: 0
 --- !u!1 &991593733
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,10 +679,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991593735}
+  - component: {fileID: 991593738}
+  - component: {fileID: 991593739}
   - component: {fileID: 991593734}
   - component: {fileID: 991593736}
   - component: {fileID: 991593737}
-  - component: {fileID: 991593738}
   m_Layer: 0
   m_Name: Ally1
   m_TagString: Untagged
@@ -808,9 +807,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0546a831c74cc4be6b10bd3c70be4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitMoveBehaviour: {fileID: 11400000, guid: bfa06ea2405e289459fd5698a91f8263, type: 2}
-  _unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
-  _healthComponent:
+  unitMovement: {fileID: 991593739}
+  unitMoveBehaviour: {fileID: 11400000, guid: e62c29e283a548b4cbf4af801b96ba8a, type: 2}
+  unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
+  healthComponent:
     health: 100
     maxHealth: 100
     isDead: 0
+--- !u!114 &991593739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991593733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dce8957b5d9fa429a9186ddbbe43db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 991593737}
+  speed: 1
