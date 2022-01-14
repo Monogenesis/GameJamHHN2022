@@ -22,7 +22,9 @@ namespace Units
         public enum Fraction
         {
             Human,
-            Alien
+            Alien,
+            Natives,
+            Neutral
         }
         
         private void Awake()
