@@ -547,9 +547,11 @@ GameObject:
   m_Component:
   - component: {fileID: 895970788}
   - component: {fileID: 895970787}
+  - component: {fileID: 895970790}
+  - component: {fileID: 895970789}
   - component: {fileID: 895970786}
   - component: {fileID: 895970785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,13 +665,46 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895970784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.74, y: -2.3, z: 0}
+  m_LocalPosition: {x: 2.87, y: -3.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &895970789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895970784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417ac4e468734fe4a420cac80cbb8624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMovement: {fileID: 895970790}
+  unitMoveBehaviour: {fileID: 11400000, guid: fa8653d8f3d2c4d4ca1a85385050691e, type: 2}
+  unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
+  healthComponent:
+    health: 100
+    maxHealth: 100
+    isDead: 0
+--- !u!114 &895970790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895970784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dce8957b5d9fa429a9186ddbbe43db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 895970786}
+  speed: 1
 --- !u!1 &991593733
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +719,8 @@ GameObject:
   - component: {fileID: 991593734}
   - component: {fileID: 991593736}
   - component: {fileID: 991593737}
-  m_Layer: 0
+  - component: {fileID: 991593740}
+  m_Layer: 7
   m_Name: Ally1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991593733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0984256, y: -0.24927904, z: 0}
+  m_LocalPosition: {x: -4.03, y: 2.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -828,3 +864,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 991593737}
   speed: 1
+--- !u!58 &991593740
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991593733}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 20

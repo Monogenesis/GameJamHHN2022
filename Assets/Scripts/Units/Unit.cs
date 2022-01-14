@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnitBehaviours.Attack;
 using UnitBehaviours.Move;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Units
         [SerializeField] private UnitMoveBehaviour unitMoveBehaviour;
         [SerializeField] private UnitAttackBehaviour unitAttackBehaviour;
         [SerializeField] private HealthComponent healthComponent;
-
+        
         public UnitMovement UnitMovement => unitMovement;
 
 
@@ -27,5 +28,15 @@ namespace Units
             unitMoveBehaviour.Act(this);
             unitAttackBehaviour.Act(this);
         }
+
+        // public static List<EnemyUnit> GetEnemiesInRadius(Vector2 origin, float radius)
+        // {
+        //     List<EnemyUnit> result = new();
+        //     
+        //     EnemyUnit.AliveEnemies.
+        //
+        //
+        //     return result;
+        // }
     }
 }
