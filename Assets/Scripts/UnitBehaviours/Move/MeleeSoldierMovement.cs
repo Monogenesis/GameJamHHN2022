@@ -14,33 +14,44 @@ namespace UnitBehaviours.Move
     public class MeleeSoldierMovement : UnitMoveBehaviour
     {
         [SerializeField] private float enemySearchRadius = 20f;
-        [SerializeField] private float searchIntervall = 5f;
+        [SerializeField] private float searchInterval = 5f;
         [SerializeField] private bool searchForEnemy = true;
-        [SerializeField] private ContactFilter2D searchFilter;
-
-        // private UnitMovement _unitMovement;
-        private Vector3 _moveTarget;
-        private float _nextActionIn = 0f;
+        [SerializeField] private LayerMask searchLayer = default;
+        
+        private ContactFilter2D _searchFilter = default;
+        private GameObject _moveTarget = default;
+        private float _nextActionIn = default;
+        
+        public override void Initialize()
+        {
+            base.Initialize();
+            _searchFilter = new ContactFilter2D();
+            _searchFilter.useLayerMask = true;
+            _searchFilter.layerMask = searchLayer;
+        }
 
         public override void Act(Unit unit)
         {
             if (searchForEnemy)
             {
                 _nextActionIn += Time.deltaTime;
-                if (_nextActionIn >= searchIntervall)
+                if (_nextActionIn >= searchInterval)
                 {
                     _nextActionIn = 0f;
                     SearchForEnemies(unit);
                 }
             }
 
-            unit.UnitMovement.AlignDirection((_moveTarget - unit.transform.position)
-                .normalized);
+            if (_moveTarget is not null)
+            {
+                unit.UnitMovement.AlignDirection((_moveTarget.transform.position - unit.transform.position)
+                    .normalized);
+            }
         }
 
-        private void MoveToTarget(Vector3 targetPosition)
+        private void MoveToTarget(GameObject target)
         {
-            _moveTarget = targetPosition;
+            _moveTarget = target;
         }
 
         private void SearchForEnemies(Unit unit)
@@ -49,7 +60,7 @@ namespace UnitBehaviours.Move
             unit.GetComponent<Collider2D>().enabled = false;
 
             Physics2D.OverlapCircle(new Vector2(unit.transform.position.x, unit.transform.position.y),
-                enemySearchRadius, searchFilter, results);
+                enemySearchRadius, _searchFilter, results);
 
             unit.GetComponent<Collider2D>().enabled = true;
 
@@ -58,7 +69,7 @@ namespace UnitBehaviours.Move
                     Vector3.Distance(collider2D.transform.position, unit.transform.position) <=
                     enemySearchRadius)
                 .OrderBy(collider2D => Vector3.Distance(collider2D.transform.position, unit.transform.position)).First()
-                .transform.position;
+                .transform.gameObject;
 
             // _moveTarget = results
             //     .Where(collider2D => Vector3.Distance(collider2D.transform.position, unit.transform.position) <=

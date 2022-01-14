@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95fa40d19a1c4f96a51abb898b0a1ad2, type: 3}
-  m_Name: EnemyMeleeSoldierMovement
+  m_Name: AlienMeleeSoldierMovement
   m_EditorClassIdentifier: 
   enemySearchRadius: 20
   searchIntervall: 5

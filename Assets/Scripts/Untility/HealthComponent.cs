@@ -24,21 +24,20 @@ namespace Untility
         }
 
 
-        public void UpdateMaxHealth(int value)
+        public void UpdateMaxHealth(int delta)
         {
-            maxHealth += value;
+            maxHealth += delta;
             if (maxHealth < health)
             {
                 health = maxHealth;
             }
         }
 
-
-        public void UpdateHealth(float value)
+        public void UpdateHealth(float delta)
         {
             if (!isDead)
             {
-                health += value;
+                health += delta;
                 if (health <= 0.0f)
                 {
                     isDead = true;

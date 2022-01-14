@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 700968586}
   - component: {fileID: 700968584}
   - component: {fileID: 700968585}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,6 +537,8 @@ MonoBehaviour:
     health: 100
     maxHealth: 100
     isDead: 0
+  fraction: 0
+  enemyFractions: 
 --- !u!1 &895970784
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +554,7 @@ GameObject:
   - component: {fileID: 895970786}
   - component: {fileID: 895970785}
   m_Layer: 6
-  m_Name: Enemy1
+  m_Name: Alien1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,14 +716,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991593735}
-  - component: {fileID: 991593738}
   - component: {fileID: 991593739}
+  - component: {fileID: 991593741}
   - component: {fileID: 991593734}
   - component: {fileID: 991593736}
   - component: {fileID: 991593737}
   - component: {fileID: 991593740}
   m_Layer: 7
-  m_Name: Ally1
+  m_Name: Human1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -831,25 +833,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &991593738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991593733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0546a831c74cc4be6b10bd3c70be4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitMovement: {fileID: 991593739}
-  unitMoveBehaviour: {fileID: 11400000, guid: e62c29e283a548b4cbf4af801b96ba8a, type: 2}
-  unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
-  healthComponent:
-    health: 100
-    maxHealth: 100
-    isDead: 0
 --- !u!114 &991593739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,3 +863,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 20
+--- !u!114 &991593741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991593733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248c0a9ef1b844ce8372d8c19a938751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMovement: {fileID: 991593739}
+  unitMoveBehaviour: {fileID: 11400000, guid: e62c29e283a548b4cbf4af801b96ba8a, type: 2}
+  unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
+  healthComponent:
+    health: 100
+    maxHealth: 100
+    isDead: 0
+  fraction: 0
+  enemyFractions: 01000000
