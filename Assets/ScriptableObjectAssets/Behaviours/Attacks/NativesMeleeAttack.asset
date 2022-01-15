@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24bfc89d24174beabc91ac057b0aead3, type: 3}
-  m_Name: HumanMeleeAttack
+  m_Name: NativesMeleeAttack
   m_EditorClassIdentifier: 
-  attackDamage: 20
-  attackRange: 5
-  attackCooldown: 1
+  damagePerSecond: 5
+  attackDamage: 10
+  attackCooldown: 2
+  attackRange: 1
   attackTargetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192

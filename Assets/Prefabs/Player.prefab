@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 1420876133970681264}
   - component: {fileID: 1420876133970681274}
   - component: {fileID: 1420876133970681277}
+  - component: {fileID: 5172695562139999106}
   - component: {fileID: 1420876133970681267}
-  - component: {fileID: 1420876133970681276}
   - component: {fileID: 1420876133970681278}
   - component: {fileID: 1420876133970681279}
-  m_Layer: 7
+  - component: {fileID: 5748092853639210322}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420876133970681266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.62, y: 0.48, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,14 +51,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitMovement: {fileID: 1420876133970681277}
-  unitMoveBehaviour: {fileID: 11400000, guid: e62c29e283a548b4cbf4af801b96ba8a, type: 2}
+  unitHealth: {fileID: 5172695562139999106}
+  unitMoveBehaviour: {fileID: 11400000, guid: 4eadcd9ef6609884b950b6007587cd0e, type: 2}
   unitAttackBehaviour: {fileID: 11400000, guid: 8548e3093670d9b498866f155a19e0dd, type: 2}
+  ownFaction: 3
+  enemyRace: 
   healthComponent:
-    health: 100
+    currentCurrentHealth: 100
     maxHealth: 100
     isDead: 0
-  fraction: 3
-  enemyFractions: 
 --- !u!114 &1420876133970681277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +74,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 1420876133970681278}
   speed: 1
+--- !u!114 &5172695562139999106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420876133970681266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa0b583f3ddbf854890e3c6579f42cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarOffset: {x: -5.25, y: -1.3}
+  healthBarUxml: {fileID: 5748092853639210322}
+  mainCamera: {fileID: 0}
 --- !u!212 &1420876133970681267
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -124,22 +141,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1420876133970681276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420876133970681266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bd2b47ff4e38c9409366f41cc22a208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthComponent:
-    health: 100
-    maxHealth: 100
-    isDead: 0
 --- !u!50 &1420876133970681278
 Rigidbody2D:
   serializedVersion: 4
@@ -187,3 +188,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5748092853639210322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420876133970681266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: aabdadbbcad99f94bbfe48d67cd2c297, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 704603eb2ec8cd743abcfbea87cf1766, type: 3}
+  m_SortingOrder: 0

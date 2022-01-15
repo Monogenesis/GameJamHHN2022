@@ -6,7 +6,7 @@ namespace Untility
     [System.Serializable]
     public class HealthComponent
     {
-        [SerializeField] private float health = 0.0f;
+        [SerializeField] private float currentCurrentHealth = 0.0f;
         [SerializeField] private float maxHealth = 0.0f;
         [SerializeField] private bool isDead = false;
 
@@ -14,22 +14,22 @@ namespace Untility
 
         public HealthComponent()
         {
-            maxHealth = health = 100.0f;
+            maxHealth = currentCurrentHealth = 100.0f;
         }
 
 
-        public HealthComponent(float maxHealth)
+        public HealthComponent(float maxCurrentCurrentHealth)
         {
-            this.maxHealth = this.health = maxHealth;
+            this.maxHealth = this.currentCurrentHealth = maxCurrentCurrentHealth;
         }
 
 
         public void UpdateMaxHealth(int delta)
         {
             maxHealth += delta;
-            if (maxHealth < health)
+            if (maxHealth < currentCurrentHealth)
             {
-                health = maxHealth;
+                currentCurrentHealth = maxHealth;
             }
         }
 
@@ -37,25 +37,25 @@ namespace Untility
         {
             if (!isDead)
             {
-                health += delta;
-                if (health <= 0.0f)
+                currentCurrentHealth += delta;
+                if (currentCurrentHealth <= 0.0f)
                 {
                     isDead = true;
-                    health = 0.0f;
+                    currentCurrentHealth = 0.0f;
                     OnPlayerDroppedBelowZeroHp?.Invoke();
                 }
-                else if (health > maxHealth)
+                else if (currentCurrentHealth > maxHealth)
                 {
-                    health = maxHealth;
+                    currentCurrentHealth = maxHealth;
                 }
             }
         }
 
 
-        public float Health
+        public float CurrentHealth
         {
-            get => health;
-            set => health = value;
+            get => currentCurrentHealth;
+            set => currentCurrentHealth = value;
         }
 
 

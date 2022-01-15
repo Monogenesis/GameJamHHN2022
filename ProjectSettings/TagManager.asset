@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - AlienFraction
-  - HumanFraction
-  - Player
-  - 
+  - AlienFaction
+  - HumanFaction
+  - NeutralFaction
+  - NativeFaction
   - 
   - 
   - 

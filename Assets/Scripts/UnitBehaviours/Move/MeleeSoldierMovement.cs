@@ -17,6 +17,7 @@ namespace UnitBehaviours.Move
         private ContactFilter2D _searchFilter = default;
         private GameObject _moveTarget = default;
         private float _nextActionIn = default;
+        private bool _hadRecentlyTarget;
         
         public override void Initialize()
         {
@@ -44,6 +45,15 @@ namespace UnitBehaviours.Move
                 unit.UnitMovement.AlignDirection((_moveTarget.transform.position - unit.transform.position)
                     .normalized);
             }
+            else
+            {
+                if (_hadRecentlyTarget)
+                {
+                    _nextActionIn = searchInterval;
+                    _hadRecentlyTarget = false;
+                }
+                unit.UnitMovement.AlignDirection(Vector2.zero);
+            }
         }
 
         private void MoveToTarget(GameObject target)
@@ -67,6 +77,7 @@ namespace UnitBehaviours.Move
             if (tmp && Vector3.Distance(tmp.transform.position, unit.transform.position) <= enemySearchRadius)
             {
                 _moveTarget = tmp.gameObject;
+                _hadRecentlyTarget = true;
             }
         }
     }

@@ -8,12 +8,7 @@ namespace UnitBehaviours.Attack
     [CreateAssetMenu(fileName = "MeleeSoldierAttackBehaviour", menuName = "ScriptableObjects/Behaviour/MeleeSoldierAttackBehaviour", order = 2)]
 
     public class MeleeSoldierAttackBehaviour : UnitAttackBehaviour
-    { 
-        [SerializeField] private float attackDamage = 20f;
-        [SerializeField] private float attackRange = 1f;
-        [SerializeField] private float attackCooldown = 1f;
-        [SerializeField] private LayerMask attackTargetLayer = default;
-        
+    {
         private ContactFilter2D _searchFilter = default;
         private Unit _attackTarget = default;
         private float _nextActionIn = default;
@@ -27,7 +22,6 @@ namespace UnitBehaviours.Attack
 
         public override void Act(Unit unit)
         {
-         
                 _nextActionIn += Time.deltaTime;
                 if (_nextActionIn >= attackCooldown)
                 {
@@ -39,8 +33,6 @@ namespace UnitBehaviours.Attack
                         Attack();
                     }
                 }
-
-                
         }
 
         private void Attack()
@@ -58,9 +50,7 @@ namespace UnitBehaviours.Attack
                 attackRange, _searchFilter, results);
             unit.GetComponent<Collider2D>().enabled = true;
 
-
-           
-            attackTargetCollider = results.Where(col => unit.EnemyRace.Contains(col.GetComponent<Unit>().OwnRace)).OrderBy(attackUnit =>
+            attackTargetCollider = results.Where(col => unit.EnemyRace.Contains(col.GetComponent<Unit>().OwnFaction)).OrderBy(attackUnit =>
                 Vector3.Distance(attackUnit.transform.position, unit.transform.position)).FirstOrDefault();
                 
             if (attackTargetCollider is not null && Vector3.Distance(attackTargetCollider.transform.position, unit.transform.position) <= attackRange)
