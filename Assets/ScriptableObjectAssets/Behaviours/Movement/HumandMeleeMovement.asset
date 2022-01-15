@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa40d19a1c4f96a51abb898b0a1ad2, type: 3}
   m_Name: HumandMeleeMovement
   m_EditorClassIdentifier: 
-  enemySearchRadius: 20
+  enemySearchRadius: 50
   searchInterval: 5
   searchForEnemy: 1
   searchLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576

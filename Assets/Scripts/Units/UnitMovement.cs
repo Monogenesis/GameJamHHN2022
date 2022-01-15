@@ -8,7 +8,7 @@ namespace Units
         [SerializeField] private float speed = 1;
 
         private Vector2 _moveDirection;
-    
+
 
         public void AlignDirection(Vector2 direction)
         {
@@ -17,12 +17,16 @@ namespace Units
 
         private void FixedUpdate()
         {
-            Move();
+            if (GameManager.State == GameManager.GameState.Running)
+            {
+                Move();
+            }
         }
-    
+
         private void Move()
         {
-            rb2d.MovePosition(rb2d.position + (_moveDirection * speed * Time.deltaTime));;
+            rb2d.MovePosition(rb2d.position + (_moveDirection * speed * Time.deltaTime));
+            ;
         }
     }
 }

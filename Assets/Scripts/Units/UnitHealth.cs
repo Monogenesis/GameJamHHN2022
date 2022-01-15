@@ -13,6 +13,12 @@ public class UnitHealth : MonoBehaviour
 
     public VisualElement HealthBar => _healthBar;
 
+    public Camera MainCamera
+    {
+        get => mainCamera;
+        set => mainCamera = value;
+    }
+
     private void Awake()
     {
         _healthBar = healthBarUxml.rootVisualElement;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnitBehaviours.Move
 {
-    [CreateAssetMenu(fileName = "IdleMovement", menuName = "ScriptableObjects/Behaviour/UnitIdleMovement", order = 1)]
+    [CreateAssetMenu(fileName = "IdleMovement", menuName = "ScriptableObjects/Behaviour/Movement/UnitIdleMovement", order = 1)]
 
     public class IdleMovement : UnitMoveBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace UnitBehaviours.Move
 {
-    [CreateAssetMenu(fileName = "PlayerMovement", menuName = "ScriptableObjects/Behaviour/PlayerMovement", order = 1)]
+    [CreateAssetMenu(fileName = "PlayerMovement", menuName = "ScriptableObjects/Behaviour/Movement/PlayerMovement", order = 1)]
     public class PlayerMovement : UnitMoveBehaviour
     {
         [SerializeField] private InputActionReference playerMovementAction;

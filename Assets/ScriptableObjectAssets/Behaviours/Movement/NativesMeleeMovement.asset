@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa40d19a1c4f96a51abb898b0a1ad2, type: 3}
   m_Name: NativesMeleeMovement
   m_EditorClassIdentifier: 
-  enemySearchRadius: 20
+  targetObjectives: []
+  enemySearchRadius: 50
   searchInterval: 5
   searchForEnemy: 1
   searchLayer:

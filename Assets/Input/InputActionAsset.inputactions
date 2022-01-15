@@ -24,13 +24,13 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "BackToMenu",
-                    "type": "Button",
-                    "id": "9679da72-aab5-4fa9-a7c5-29a2faf3e0c6",
-                    "expectedControlType": "Button",
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "64f15804-18bb-4c69-a52d-a8e06e6f6adf",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -102,23 +102,12 @@
                 },
                 {
                     "name": "",
-                    "id": "3995be80-bcf1-4812-8d3c-dde3682fe39e",
-                    "path": "<Keyboard>/escape",
+                    "id": "db846ef1-5a88-4c15-9b25-0a70fa13cb29",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BackToMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5140ac88-9796-4768-bf98-f599356d2197",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BackToMenu",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -154,6 +143,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "BackToMenu",
+                    "type": "Button",
+                    "id": "e29137a6-8d30-4de7-849a-622651ad2209",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -231,6 +229,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "AnyButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b70a3759-3e94-4f38-bf0a-9d25322c0a28",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BackToMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91a0db2b-9aea-4169-9ecb-f50ec5b21447",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BackToMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -7,13 +7,15 @@ public class GameManager : MonoBehaviour
 {
     private void Start()
     {
-        State = GameState.Paused;
+        State = GameState.Menu;
     }
 
     public static GameState State { get;  set; }
     public enum GameState
     {
-        Paused,
-        Running
+        Menu,
+        Running,
+        RunningPaused,
+        GameOver
     }
 }

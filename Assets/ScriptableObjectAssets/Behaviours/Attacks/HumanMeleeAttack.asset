@@ -15,7 +15,7 @@ MonoBehaviour:
   damagePerSecond: 25
   attackDamage: 25
   attackCooldown: 1
-  attackRange: 5
+  attackRange: 2
   attackTargetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576

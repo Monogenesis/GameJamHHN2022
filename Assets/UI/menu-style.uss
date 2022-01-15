@@ -13,3 +13,10 @@ Button {
 Label {
     font-size: 70px;
 }
+
+.welcome-spawn {
+    transition-duration: 0ms;
+    opacity: 0.42;
+    scale: 0.8 0.8;
+    border-bottom-width: 5px;
+}

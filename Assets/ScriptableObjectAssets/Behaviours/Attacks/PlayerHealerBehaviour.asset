@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bfc89d24174beabc91ac057b0aead3, type: 3}
-  m_Name: NativesMeleeAttack
+  m_Script: {fileID: 11500000, guid: b15f8cf747664874c942db03884fd886, type: 3}
+  m_Name: PlayerHealerBehaviour
   m_EditorClassIdentifier: 
-  damagePerSecond: 5
-  attackDamage: 10
-  attackCooldown: 2
-  attackRange: 5
-  attackTargetLayer:
+  healPower: 30
+  healRange: 10
+  healRadius: 1
+  healLayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 704

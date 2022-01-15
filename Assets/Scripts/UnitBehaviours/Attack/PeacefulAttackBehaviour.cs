@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UnitBehaviours.Attack
 {
-    [CreateAssetMenu(fileName = "PeacefulAttackBehaviour", menuName = "ScriptableObjects/Behaviour/UnitPeacefulAttackBehaviour", order = 2)]
+    [CreateAssetMenu(fileName = "PeacefulAttackBehaviour", menuName = "ScriptableObjects/Behaviour/Offensive/UnitPeacefulAttackBehaviour", order = 2)]
 
     public class PeacefulAttackBehaviour : UnitAttackBehaviour
     {

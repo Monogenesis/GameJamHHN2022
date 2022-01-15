@@ -65,10 +65,10 @@
         </ui:VisualElement>
         <ui:VisualElement name="welcome-page" style="width: 90%; height: 90%; align-items: center; display: flex; background-color: rgb(84, 74, 74); justify-content: center;">
             <ui:VisualElement style="flex-direction: column; width: 100%; padding-bottom: 16px; justify-content: flex-start; align-items: center;">
-                <ui:Label text="Balance of War" display-tooltip-when-elided="true" style="font-size: 172px; -unity-text-align: upper-center; border-bottom-width: 5px; border-bottom-color: rgb(255, 255, 255);" />
                 <ui:VisualElement />
+                <ui:Label text="Balance of War" display-tooltip-when-elided="true" name="welcomescreen-label" class="welcome-spawn" style="font-size: 172px; -unity-text-align: upper-center; border-bottom-color: rgb(255, 255, 255);" />
             </ui:VisualElement>
-            <ui:Label text="&lt; press any button&gt;" display-tooltip-when-elided="true" style="color: rgba(255, 255, 255, 0.76); padding-top: 130px;" />
+            <ui:Label text="&lt; press any button &gt;" display-tooltip-when-elided="true" name="welcomescreen-clickany-label" class="fade-in" style="color: rgba(255, 255, 255, 0.76); padding-top: 130px; transition-duration: 3000ms; opacity: 0; transition-delay: 0ms; transition-property: opacity;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

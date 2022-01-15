@@ -19,6 +19,10 @@ namespace Units
 
         public UnitMovement UnitMovement => unitMovement;
 
+        public UnitMoveBehaviour UnitMoveBehaviour => unitMoveBehaviour;
+
+        public UnitAttackBehaviour UnitAttackBehaviour => unitAttackBehaviour;
+
         public Faction OwnFaction => ownFaction;
         public List<Faction> EnemyRace => enemyRace;
 
@@ -51,7 +55,7 @@ namespace Units
 
         private void Update()
         {
-            if (GameManager.State == GameManager.GameState.Running)
+            if (GameManager.State.Equals(GameManager.GameState.Running))
             {
                 unitMoveBehaviour.Act(this);
                 unitAttackBehaviour.Act(this); 

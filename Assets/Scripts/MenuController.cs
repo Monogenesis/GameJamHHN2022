@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -11,7 +8,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private UIDocument menu;
     [SerializeField] private InputActionReference playerInputRef;
     [SerializeField] private InputActionReference backToMenuInputActionReference;
-    [SerializeField] private InputActionReference backToGameInputActionReference;
+    // [SerializeField] private InputActionReference backToGameInputActionReference;
     [SerializeField] private InputActionReference welcomeScreenInputActionReference;
     private VisualElement _root;
     private VisualElement _lastMenu;
@@ -22,7 +19,6 @@ public class MenuController : MonoBehaviour
     private Button _showRulesBackButton;
     private Button _settingsBackButton;
     
-    private bool _gameIsRunning;
     private void Start()
     {
         _root = menu.rootVisualElement;
@@ -36,16 +32,22 @@ public class MenuController : MonoBehaviour
         
         playerInputRef.action.actionMap.Disable();
         
-        backToGameInputActionReference.action.Enable();
-        backToMenuInputActionReference.action.Enable();
+        // backToGameInputActionReference.action.Disable();
+        backToMenuInputActionReference.action.Disable();
 
-        backToGameInputActionReference.action.performed += ctx => BackToGame();
-        backToMenuInputActionReference.action.performed += ctx => BackToMenu();
+        // backToGameInputActionReference.action.performed += ctx => BackToGame();
+        backToMenuInputActionReference.action.performed += ctx => ToggleMenu();
 
         _root.Q<Button>("startgame-button").clicked += StartGame;
         _root.Q<Button>("rules-button").clicked += ShowRules;
         _root.Q<Button>("settings-button").clicked += OpenSettings;
         _root.Q<Button>("quitgame-button").clicked += QuitApplication;
+        _root.schedule.Execute((() =>
+        {
+            _root.Q<Label>("welcomescreen-label").ToggleInClassList("welcome-spawn");
+            _root.Q<Label>("welcomescreen-clickany-label").style.opacity = 1;
+        })).ExecuteLater(100);
+       
         _showRulesBackButton.clicked += BackInMenu;
         _settingsBackButton.clicked += BackInMenu;
 
@@ -53,9 +55,68 @@ public class MenuController : MonoBehaviour
         welcomeScreenInputActionReference.action.performed += ctx =>
         {
             _root.Q<VisualElement>("welcome-page").style.display = DisplayStyle.None;
-            ShowRules();        
+            ShowRules();
             welcomeScreenInputActionReference.action.Disable();
         };
+    }
+
+    public void ToggleMenu()
+    {
+        switch (GameManager.State)
+        {
+            case GameManager.GameState.Menu:
+                break;
+            case GameManager.GameState.Running:
+                _root.style.display = DisplayStyle.Flex;
+                playerInputRef.action.actionMap.Disable();
+                GameManager.State = GameManager.GameState.RunningPaused;
+                break;
+            case GameManager.GameState.RunningPaused:
+                _root.style.display = DisplayStyle.None;
+                playerInputRef.action.actionMap.Enable();
+                GameManager.State = GameManager.GameState.Running;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+       
+    }
+    // private void BackToMenu()
+    // {
+    //     if (GameManager.State == GameManager.GameState.Running)
+    //     {
+    //         _root.style.display = DisplayStyle.Flex;
+    //         backToGameInputActionReference.action.Disable();
+    //         backToMenuInputActionReference.action.Enable();
+    //         playerInputRef.action.actionMap.Disable();
+    //         GameManager.State = GameManager.GameState.RunningPaused;
+    //     }
+    // }
+    // private void BackToGame()
+    // {
+    //     if (GameManager.State == GameManager.GameState.RunningPaused)
+    //     {
+    //         _root.style.display = DisplayStyle.None;
+    //         playerInputRef.action.actionMap.Enable();
+    //         backToGameInputActionReference.action.Disable();
+    //         backToMenuInputActionReference.action.Enable();
+    //         GameManager.State = GameManager.GameState.Running;
+    //     }
+    //      
+    // }
+
+    public void StartGame()
+    {
+        _root.style.display = DisplayStyle.None;
+        playerInputRef.action.actionMap.Enable();
+        GameManager.State = GameManager.GameState.Running;
+        backToMenuInputActionReference.action.Enable();
+    }
+
+    public void GameOver()
+    {
+
+
     }
 
     private void ShowRules()
@@ -78,42 +139,6 @@ public class MenuController : MonoBehaviour
         _mainMenuPage.style.display = DisplayStyle.Flex;
         _lastMenu = _mainMenuPage;
     }
-    private void BackToMenu()
-    {
-        if (_gameIsRunning)
-        {
-            _root.style.visibility = Visibility.Visible;
-            playerInputRef.action.actionMap.Disable();
-            backToGameInputActionReference.action.Enable();
-            GameManager.State = GameManager.GameState.Paused;
-        }
-    }
-    private void BackToGame()
-    {
-            _root.style.visibility = Visibility.Hidden;
-            playerInputRef.action.actionMap.Enable();
-            
-            backToGameInputActionReference.action.Disable();
-            backToMenuInputActionReference.action.Enable();
-    }
-
-    public void StartGame()
-    {
-        _root.style.visibility = Visibility.Hidden;
-        playerInputRef.action.actionMap.Enable();
-        backToMenuInputActionReference.action.Enable();
-        GameManager.State = GameManager.GameState.Running;
-    }
-
-    public void GameOver()
-    {
-        backToGameInputActionReference.action.Disable();
-        backToMenuInputActionReference.action.Disable();
-        
-
-    }
-
-
     public void QuitApplication()
     {
         Application.Quit();

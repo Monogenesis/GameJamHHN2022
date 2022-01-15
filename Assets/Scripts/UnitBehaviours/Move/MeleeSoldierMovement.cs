@@ -6,7 +6,7 @@ using Unit = Units.Unit;
 namespace UnitBehaviours.Move
 {
     [CreateAssetMenu(fileName = "MeleeSoldierMovement",
-        menuName = "ScriptableObjects/Behaviour/UnitMeleeSoldierMovement", order = 1)]
+        menuName = "ScriptableObjects/Behaviour/Movement/UnitMeleeSoldierMovement", order = 1)]
     public class MeleeSoldierMovement : UnitMoveBehaviour
     {
         [SerializeField] private float enemySearchRadius = 20f;
@@ -52,8 +52,11 @@ namespace UnitBehaviours.Move
                     _nextActionIn = searchInterval;
                     _hadRecentlyTarget = false;
                 }
+           
                 unit.UnitMovement.AlignDirection(Vector2.zero);
             }
+            
+            
         }
 
         private void MoveToTarget(GameObject target)
@@ -77,8 +80,15 @@ namespace UnitBehaviours.Move
             if (tmp && Vector3.Distance(tmp.transform.position, unit.transform.position) <= enemySearchRadius)
             {
                 _moveTarget = tmp.gameObject;
-                _hadRecentlyTarget = true;
             }
+            else
+            {
+                // if (targetObjectives.Count > 0)
+                // {
+                //     _moveTarget = targetObjectives[Random.Range(0, targetObjectives.Count - 1)].gameObject;
+                // }
+            }
+            _hadRecentlyTarget = true;
         }
     }
 }
