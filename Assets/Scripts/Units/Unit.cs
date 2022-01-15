@@ -45,13 +45,17 @@ namespace Units
         public void ChangeHealth(float delta)
         {
             healthComponent.UpdateHealth(delta);
+            // TODO Move to Unithealth
             unitHealth.HealthBar.style.width = (healthComponent.CurrentHealth / healthComponent.MaxHealth) * UnitHealth.MaxWidth;
         }
 
         private void Update()
         {
-            unitMoveBehaviour.Act(this);
-            unitAttackBehaviour.Act(this);
+            if (GameManager.State == GameManager.GameState.Running)
+            {
+                unitMoveBehaviour.Act(this);
+                unitAttackBehaviour.Act(this); 
+            }
         }
     }
 }

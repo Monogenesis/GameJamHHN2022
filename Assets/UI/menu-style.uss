@@ -7,5 +7,9 @@ Button {
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
-    background-color: rgba(123, 75, 75, 255);
+    background-color: rgb(123, 75, 75);
+}
+
+Label {
+    font-size: 70px;
 }

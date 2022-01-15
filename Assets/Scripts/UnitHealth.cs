@@ -21,9 +21,12 @@ public class UnitHealth : MonoBehaviour
 
     private void Start()
     {
-        UpdatePosition();
+        if (GameManager.State == GameManager.GameState.Running)
+        {
+            UpdatePosition();
+        }
     }
-    
+
 
     private void LateUpdate()
     {
