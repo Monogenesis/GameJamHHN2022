@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Units;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Networking;
 using Unit = Units.Unit;
 
 namespace UnitBehaviours.Move
@@ -28,6 +24,7 @@ namespace UnitBehaviours.Move
             _searchFilter = new ContactFilter2D();
             _searchFilter.useLayerMask = true;
             _searchFilter.layerMask = searchLayer;
+            _nextActionIn = searchInterval;
         }
 
         public override void Act(Unit unit)
@@ -42,7 +39,7 @@ namespace UnitBehaviours.Move
                 }
             }
 
-            if (_moveTarget is not null)
+            if (_moveTarget != null)
             {
                 unit.UnitMovement.AlignDirection((_moveTarget.transform.position - unit.transform.position)
                     .normalized);
@@ -64,18 +61,13 @@ namespace UnitBehaviours.Move
 
             unit.GetComponent<Collider2D>().enabled = true;
 
-            _moveTarget = results
-                .Where(collider2D =>
-                    Vector3.Distance(collider2D.transform.position, unit.transform.position) <=
-                    enemySearchRadius)
-                .OrderBy(collider2D => Vector3.Distance(collider2D.transform.position, unit.transform.position)).First()
-                .transform.gameObject;
-
-            // _moveTarget = results
-            //     .Where(collider2D => Vector3.Distance(collider2D.transform.position, unit.transform.position) <=
-            //                          enemySearchRadius)
-            //     .OrderBy(collider2D => Vector3.Distance(collider2D.transform.position, unit.transform.position)).First()
-            //     .GetComponent<Unit>();
+            var tmp = results.OrderBy(attackUnit =>
+                Vector3.Distance(attackUnit.transform.position, unit.transform.position)).FirstOrDefault();
+                
+            if (tmp && Vector3.Distance(tmp.transform.position, unit.transform.position) <= enemySearchRadius)
+            {
+                _moveTarget = tmp.gameObject;
+            }
         }
     }
 }

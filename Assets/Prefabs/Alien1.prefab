@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitMovement: {fileID: 5190520291951854176}
   unitMoveBehaviour: {fileID: 11400000, guid: fa8653d8f3d2c4d4ca1a85385050691e, type: 2}
-  unitAttackBehaviour: {fileID: 11400000, guid: e7cd16ed60de3bc449da5193e213e564, type: 2}
+  unitAttackBehaviour: {fileID: 11400000, guid: e1b85b4c0dd10e344a6b5aa12394f528, type: 2}
   healthComponent:
     health: 100
     maxHealth: 100
