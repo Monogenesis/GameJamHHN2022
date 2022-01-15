@@ -912,8 +912,10 @@ GameObject:
   - component: {fileID: 1229429370}
   - component: {fileID: 1229429369}
   - component: {fileID: 1229429368}
+  - component: {fileID: 1229429371}
+  - component: {fileID: 1229429373}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1229429367}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1229429370
@@ -977,6 +979,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229429371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229429367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: aabdadbbcad99f94bbfe48d67cd2c297, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 020be31a0a6c76c4d8de74f375846063, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &1229429373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229429367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3e2a5a7c0383f4e88e4052a1ab9cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 1229429371}
+  playerInputRef: {fileID: -4982957079474527957, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
+  backToMenuInputActionReference: {fileID: 7725132265262367167, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
+  backToGameInputActionReference: {fileID: -6891818317652399371, guid: 9bc8faa5741ec2c49878dc6c2fdbc87f, type: 3}
 --- !u!1 &1258070739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1420876133970681266, guid: e92916585b5a4934da0adba0ff793fe9, type: 3}

@@ -1,0 +1,11 @@
+* {
+    color: rgb(255, 255, 255);
+}
+
+Button {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: rgba(123, 75, 75, 255);
+}

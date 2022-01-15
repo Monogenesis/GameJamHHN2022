@@ -9,13 +9,14 @@ public class UnitHealth : MonoBehaviour
 
     private VisualElement _healthBar;
     private Vector3 _lastFollowPosition;
-    public const int MaxWidth = 25;
+    public const int MaxWidth = 50;
 
     public VisualElement HealthBar => _healthBar;
 
     private void Awake()
     {
         _healthBar = healthBarUxml.rootVisualElement;
+        _healthBar.style.width = MaxWidth;
     }
 
     private void Start()

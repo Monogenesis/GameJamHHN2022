@@ -45,7 +45,6 @@ namespace Units
         public void ChangeHealth(float delta)
         {
             healthComponent.UpdateHealth(delta);
-
             unitHealth.HealthBar.style.width = (healthComponent.CurrentHealth / healthComponent.MaxHealth) * UnitHealth.MaxWidth;
         }
 
