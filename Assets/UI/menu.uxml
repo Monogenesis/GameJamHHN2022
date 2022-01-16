@@ -13,7 +13,7 @@
                     <ui:Button text="How To Play" display-tooltip-when-elided="true" name="rules-button" enable-rich-text="true" style="width: 100%; height: 100%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; font-size: 71px; margin-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="width: 50%; height: 10%; justify-content: center; margin-bottom: 3%;">
-                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings-button" style="width: 100%; height: 100%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; font-size: 71px; margin-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings-button" style="width: 100%; height: 100%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; font-size: 71px; margin-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; opacity: 0.46; display: none;" />
                 </ui:VisualElement>
                 <ui:VisualElement style="width: 50%; height: 10%; justify-content: center; margin-bottom: 3%;">
                     <ui:Button text="Quit Game" display-tooltip-when-elided="true" name="quitgame-button" style="width: 100%; height: 100%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; font-size: 71px; margin-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
@@ -69,6 +69,14 @@
                 <ui:Label text="Balance of War" display-tooltip-when-elided="true" name="welcomescreen-label" class="welcome-spawn" style="font-size: 172px; -unity-text-align: upper-center; border-bottom-color: rgb(255, 255, 255);" />
             </ui:VisualElement>
             <ui:Label text="&lt; press any button &gt;" display-tooltip-when-elided="true" name="welcomescreen-clickany-label" class="fade-in" style="color: rgba(255, 255, 255, 0.76); padding-top: 130px; transition-duration: 3000ms; opacity: 0; transition-delay: 0ms; transition-property: opacity;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="gameover-page" style="width: 90%; height: 90%; align-items: center; display: none; background-color: rgb(84, 74, 74); justify-content: space-between;">
+            <ui:VisualElement style="flex-direction: column; width: 100%; padding-bottom: 16px; justify-content: flex-start; align-items: center;">
+                <ui:VisualElement />
+                <ui:Label text="Game Over" display-tooltip-when-elided="true" name="welcomescreen-label" style="font-size: 172px; -unity-text-align: upper-center; border-bottom-color: rgb(255, 255, 255); color: rgb(255, 61, 61); margin-top: 104px;" />
+            </ui:VisualElement>
+            <ui:Label text="One tribe now dominates the whole world!" display-tooltip-when-elided="true" name="welcomescreen-clickany-label" style="color: rgb(255, 255, 255); transition-duration: 3000ms; opacity: 1; transition-delay: 0ms; transition-property: opacity; margin-top: -17px; padding-top: 44px; padding-bottom: 427px;" />
+            <ui:Button text="Quit Game" display-tooltip-when-elided="true" name="gameover-quitgame-button" style="position: absolute; font-size: 96px; bottom: 88px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

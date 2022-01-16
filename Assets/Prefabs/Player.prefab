@@ -53,7 +53,7 @@ MonoBehaviour:
   unitMovement: {fileID: 1420876133970681277}
   unitHealth: {fileID: 5172695562139999106}
   unitMoveBehaviour: {fileID: 11400000, guid: 4eadcd9ef6609884b950b6007587cd0e, type: 2}
-  unitAttackBehaviour: {fileID: 11400000, guid: 8548e3093670d9b498866f155a19e0dd, type: 2}
+  unitAttackBehaviour: {fileID: 11400000, guid: f78ce26ccde59114a871c278af9ed332, type: 2}
   ownFaction: 3
   enemyRace: 
   healthComponent:

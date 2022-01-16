@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField] private MenuController menuController;
+
     [SerializeField] private Camera mainCamera;
     [SerializeField] protected GameManager gameManager = null;
     [SerializeField] protected float timeUntilNextSpawn = 1f;
@@ -37,6 +39,7 @@ public class Spawner : MonoBehaviour
         {
             AllFactionSpawner.Remove(this);
             GameManager.State = GameManager.GameState.GameOver;
+            menuController.ShowGameOverScreen();
         }
         else
         {
@@ -63,7 +66,7 @@ public class Spawner : MonoBehaviour
     private void Spawn()
     {
         Unit unit = Instantiate(spawnPrefabs[Random.Range(0, spawnPrefabs.Count - 1)],
-            transform.localPosition + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0),
+            transform.localPosition + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0),
             Quaternion.identity);
         unit.GetComponent<UnitHealth>().MainCamera = mainCamera;
     }

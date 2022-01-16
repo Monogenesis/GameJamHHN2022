@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bfc89d24174beabc91ac057b0aead3, type: 3}
   m_Name: AlienMeleeAttack
   m_EditorClassIdentifier: 
-  damagePerSecond: 6
-  attackDamage: 3
-  attackCooldown: 0.5
-  attackRange: 5
+  damagePerSecond: 30
+  attackDamage: 90
+  attackCooldown: 3
+  attackRange: 3
   attackTargetLayer:
     serializedVersion: 2
     m_Bits: 640

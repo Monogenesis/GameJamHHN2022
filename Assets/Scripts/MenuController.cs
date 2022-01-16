@@ -16,6 +16,7 @@ public class MenuController : MonoBehaviour
     private VisualElement _mainMenuPage;
     private VisualElement _howToPlayPage;
     private VisualElement _settingsPage;
+    private VisualElement _gameOverPage;
     private Button _showRulesBackButton;
     private Button _settingsBackButton;
     
@@ -25,6 +26,7 @@ public class MenuController : MonoBehaviour
         _mainMenuPage = _root.Q<VisualElement>("mainmenu-page");
         _howToPlayPage = _root.Q<VisualElement>("rules-page");
         _settingsPage = _root.Q<VisualElement>("settings-page");
+        _gameOverPage = _root.Q<VisualElement>("gameover-page");
         _showRulesBackButton = _root.Q<Button>("showrulesback-button");
         _settingsBackButton = _root.Q<Button>("settingsback-button");
         
@@ -42,6 +44,7 @@ public class MenuController : MonoBehaviour
         _root.Q<Button>("rules-button").clicked += ShowRules;
         _root.Q<Button>("settings-button").clicked += OpenSettings;
         _root.Q<Button>("quitgame-button").clicked += QuitApplication;
+        _root.Q<Button>("gameover-quitgame-button").clicked += QuitApplication;
         _root.schedule.Execute((() =>
         {
             _root.Q<Label>("welcomescreen-label").ToggleInClassList("welcome-spawn");
@@ -60,6 +63,11 @@ public class MenuController : MonoBehaviour
         };
     }
 
+    public void ShowGameOverScreen()
+    {
+        _root.style.display = DisplayStyle.Flex;
+        _gameOverPage.style.display = DisplayStyle.Flex;
+    }
     public void ToggleMenu()
     {
         switch (GameManager.State)
